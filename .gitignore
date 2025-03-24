@@ -355,3 +355,4 @@ $RECYCLE.BIN/
 *.py
 
 !autosv.py
+!sliding_cpu.py
