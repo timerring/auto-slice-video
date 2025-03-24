@@ -77,7 +77,3 @@ def calculate_density(dialogues, window_size=300, top_n=1, max_overlap=60):
     
     return filtered_periods
 
-
-dialogues = extract_dialogues('sample.ass')
-density_periods = calculate_density(dialogues, window_size=300, top_n=3)
-print(density_periods)
