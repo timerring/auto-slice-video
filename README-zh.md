@@ -4,7 +4,7 @@
     <img src="assets/headerLight.svg" alt="auto-slice-video" />
   </picture>
 
-基于弹幕密度自动切片高能片段
+基于弹幕密度的自动高能片段切片机
 
 [English](./README.md) | 简体中文
 
