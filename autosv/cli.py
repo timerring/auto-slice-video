@@ -49,13 +49,13 @@ def cli():
         "--overlap",
         default=30,
         type=int,
-        help="The overlap(seconds) of the sliced highlight videos, default is 30",
+        help="The overlapped(seconds) between the sliced highlight videos, default is 30",
     )
     parser.add_argument(
         "--step",
         default=1,
         type=int,
-        help="The step(seconds) of the sliced highlight videos, default is 1",
+        help="The step(seconds) of the sliding window, default is 1",
     )
 
     args = parser.parse_args()
