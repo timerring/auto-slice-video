@@ -30,7 +30,7 @@ def calculate_window_density(timestamps, window_size, step, results):
                 
         results[idx] = count / window_size
 
-def find_dense_periods_gpu(timestamps, window_size=10, top_n=1, max_overlap=30, step=1):
+def find_dense_periods_gpu(timestamps, window_size, top_n, max_overlap, step):
     """
     Find the dense periods of timestamps in a given window size.
 
