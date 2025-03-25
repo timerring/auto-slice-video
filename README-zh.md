@@ -4,7 +4,7 @@
     <img src="assets/headerLight.svg" alt="auto-slice-video" />
   </picture>
 
-基于弹幕密度的自动高能片段切片机
+基于弹幕密度的高能片段自动切片机
 
 [English](./README.md) | 简体中文
 
@@ -34,7 +34,7 @@
 
 更多操作系统安装 ffmpeg 请参考[官方网站](https://ffmpeg.org/download.html)。
 
-安装 autosv:
+然后安装 `autosv`:
 
 ```bash
 pip install autosv

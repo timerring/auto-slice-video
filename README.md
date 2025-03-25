@@ -34,6 +34,8 @@ To use this tool, you need to install ffmpeg first.
 
 More OS please refer to the [official website](https://ffmpeg.org/download.html).
 
+Then install the `autosv` package.
+
 ```bash
 pip install autosv
 ```
