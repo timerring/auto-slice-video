@@ -352,7 +352,4 @@ $RECYCLE.BIN/
 *.ass
 *.xml
 *.png
-*.py
-
-!autosv.py
-!sliding_cpu.py
+printdens.py
