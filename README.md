@@ -1,6 +1,14 @@
-# auto-slice-video
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/headerDark.svg" />
+    <img src="assets/headerLight.svg" alt="auto-slice-video" />
+  </picture>
 
 Auto slice the shorts based on the density of danmaku.
+
+简体中文 | [English](./README-en.md)
+
+</div>
 
 ## Features
 
