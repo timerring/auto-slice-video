@@ -58,4 +58,4 @@ def slice_video_by_danmaku(
 
 
 if __name__ == "__main__":
-    slice_video_by_danmaku("./sample.ass", "./sample.mp4", 300, 3, 60, 1)
+    slice_video_by_danmaku("./test/sample.ass", "./test/sample.mp4", 300, 3, 60, 1)

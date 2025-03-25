@@ -73,6 +73,10 @@ slice_video_by_danmaku(ass_path, video_path, duration=300, top_n=3, max_overlap=
 
 ## 常见问题
 
-### 为什么我不能使用gpu加速？
+### GPU 和 CPU 实现有什么区别？
+
+一般来说，当输入计算数据较大时，由于 GPU 是并行计算，因此GPU 计算比 CPU 计算更快且更高效。在我的实测中，当输入数据规模达到3万多条时 (见`test/sample2.ass`)，GPU 计算仅用 2 秒，而 CPU 计算用 33 秒，GPU 实现速度是 CPU 实现的 16.5 倍，并且仅占用 55 MB 的显存。
+
+### 为什么我不能使用 GPU 加速？
 
 `autosv` 会通过 `nvcc -V` 检测机器上是否可用cuda，如果您的机器有NVIDIA GPU，请确保您的驱动已安装且cuda可用。同时，确保您已安装正确版本的`numba`和`numpy`。
