@@ -18,12 +18,12 @@ if USE_GPU:
     except ImportError:
         USE_GPU = False
 
-def find_dense_periods(timestamps, window_size=300, top_n=3, max_overlap=60):
+def find_dense_periods(timestamps, window_size=300, top_n=3, max_overlap=60, step=1):
     """Find dense periods using either GPU or CPU implementation based on GPU availability."""
     if USE_GPU:
         print("Using GPU implementation")
-        return find_dense_periods_gpu(timestamps, window_size, top_n, max_overlap)
+        return find_dense_periods_gpu(timestamps, window_size, top_n, max_overlap, step)
     
     print("Using CPU implementation")
-    return find_dense_periods_cpu(timestamps, window_size, top_n, max_overlap)
+    return find_dense_periods_cpu(timestamps, window_size, top_n, max_overlap, step)
 
