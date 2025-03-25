@@ -10,6 +10,10 @@
 
 </div>
 
+## 效果展示
+
+![](https://cdn.jsdelivr.net/gh/timerring/scratchpad2023/2024/2025-03-25-18-27-58.gif)
+
 ## 功能
 
 - 基于滑动窗口算法检测弹幕密集的时间段
