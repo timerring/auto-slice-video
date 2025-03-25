@@ -4,7 +4,7 @@
     <img src="assets/headerLight.svg" alt="auto-slice-video" />
   </picture>
 
-**Auto slice the highlight shorts** based on the **density of danmaku**.
+**Auto slice the highlight shorts** based on the density of danmaku.
 
 English | [简体中文](./README-zh.md)
 
