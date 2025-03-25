@@ -6,10 +6,11 @@ Auto slice the shorts based on the density of danmaku.
 
 - Detect the dense period of danmaku based on the sliding window algorithm.
 - Slice the video based on the density of danmaku.
+- Support GPU accelerated calculation.
 
 ## Usage
 
 ```bash
-python autosv.py
+python -m autoslice.autosv
 ```
 
