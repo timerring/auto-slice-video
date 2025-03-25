@@ -73,6 +73,10 @@ slice_video_by_danmaku(ass_path, video_path, duration=300, top_n=3, max_overlap=
 
 ## common issues
 
+### What is the difference between cpu and gpu implementation?
+
+Generally speaking, the gpu implementation is faster and more efficient than the cpu implementation due to the parallel computing. In my practice, when the input data is around 30k(Try `test/sample2.ass`), the gpu implementation only takes 2 seconds, while the cpu implementation takes 33 seconds, which is 16.5 times faster with only 55 MB VRAM occupied.
+
 ### Why I cannot use the gpu acceleration?
 
 The autosv will detect whether the cuda is available on the machine via `nvcc -V`, if your machine has nvidia gpu, please make sure your driver is installed and the cuda is available. Meanwhile, make sure you have installed the `numba` and `numpy` with the right version.
