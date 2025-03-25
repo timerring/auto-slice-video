@@ -10,10 +10,6 @@ English | [简体中文](./README-zh.md)
 
 </div>
 
-## Demo
-
-![](https://cdn.jsdelivr.net/gh/timerring/scratchpad2023/2024/2025-03-25-18-27-58.gif)
-
 ## Features
 
 - Detect the dense period of danmaku based on the sliding window algorithm.
@@ -23,6 +19,10 @@ English | [简体中文](./README-zh.md)
 - Support custom slice duration.
 - Add detailed log information.
 - Support cli usage and api usage.
+
+## Demo
+
+![](https://cdn.jsdelivr.net/gh/timerring/scratchpad2023/2024/2025-03-25-18-27-58.gif)
 
 ## Installation
 
