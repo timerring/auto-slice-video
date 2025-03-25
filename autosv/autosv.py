@@ -21,7 +21,7 @@ def extract_timestamps(file_path):
                 timestamps.append(start_time)
     return timestamps
 
-def slice_video_by_danmaku(ass_path, video_path, duration=300, top_n=3, max_overlap=60, step=1):
+def slice_video_by_danmaku(ass_path, video_path, duration=60, top_n=1, max_overlap=30, step=1):
     """
     Slice the video by the dense periods of danmaku.
 

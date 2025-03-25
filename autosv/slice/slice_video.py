@@ -10,7 +10,7 @@ def format_time(seconds):
     s = int(seconds % 60)
     return f"{h:02}:{m:02}:{s:02}"
 
-def slice_video(video_path, output_path, start_time, duration=30):
+def slice_video(video_path, output_path, start_time, duration):
     """Slice the video using ffmpeg."""
     duration = format_time(duration)
     command = [

@@ -2,7 +2,7 @@
 
 from collections import defaultdict
 
-def find_dense_periods_cpu(timestamps, window_size=300, top_n=1, max_overlap=30, step=1):
+def find_dense_periods_cpu(timestamps, window_size, top_n, max_overlap, step):
     """Calculate the top N maximum density periods of timestamps in a given window size.
     
     Args:
