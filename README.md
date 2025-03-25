@@ -4,9 +4,9 @@
     <img src="assets/headerLight.svg" alt="auto-slice-video" />
   </picture>
 
-Auto slice the shorts based on the density of danmaku.
+Auto slice the highlight shorts based on the density of danmaku.
 
-简体中文 | [English](./README-en.md)
+English | [简体中文](./README-zh.md)
 
 </div>
 
@@ -14,11 +14,11 @@ Auto slice the shorts based on the density of danmaku.
 
 - Detect the dense period of danmaku based on the sliding window algorithm.
 - Slice the video based on the density of danmaku.
-- Support GPU accelerated calculation.(Automatically choose whether to use GPU acceleration)
+- Support GPU accelerated calculation.([Automatically choose whether to use GPU acceleration](#why-i-cannot-use-the-gpu-acceleration))
 - Support custom quantity slicing videos.
 - Support custom slice duration.
 
-## Prerequisites
+## Installation
 
 To use this tool, you need to install ffmpeg first.
 
@@ -43,3 +43,9 @@ from autoslice.autosv import slice_video_by_danmaku
 
 slice_video_by_danmaku(ass_path, video_path, duration=300, top_n=3, max_overlap=60, step=1)
 ```
+
+## common issues
+
+### Why I cannot use the gpu acceleration?
+
+The autosv will detect whether the cuda is available on the machine via `nvcc -V`, if your machine has nvidia gpu, please make sure your driver is installed and the cuda is available.
