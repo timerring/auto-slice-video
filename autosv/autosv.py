@@ -3,25 +3,31 @@
 import os
 from .calculate.selection import find_dense_periods
 from .slice.slice_video import slice_video
+from .log.logger import Log
+
 
 def parse_time(time_str):
     """Convert ASS time format to seconds with milliseconds."""
-    h, m, s = time_str.split(':')
-    s, ms = s.split('.')
+    h, m, s = time_str.split(":")
+    s, ms = s.split(".")
     return int(h) * 3600 + int(m) * 60 + int(s) + int(ms) / 1000
+
 
 def extract_timestamps(file_path):
     """Extract dialogue start times from the ASS file."""
     timestamps = []
-    with open(file_path, 'r', encoding='utf-8') as file:
+    with open(file_path, "r", encoding="utf-8") as file:
         for line in file:
-            if line.startswith('Dialogue:'):
-                parts = line.split(',')
+            if line.startswith("Dialogue:"):
+                parts = line.split(",")
                 start_time = parse_time(parts[1].strip())
                 timestamps.append(start_time)
     return timestamps
 
-def slice_video_by_danmaku(ass_path, video_path, duration=60, top_n=1, max_overlap=30, step=1):
+
+def slice_video_by_danmaku(
+    ass_path, video_path, duration=60, top_n=1, max_overlap=30, step=1
+):
     """
     Slice the video by the dense periods of danmaku.
 
@@ -36,13 +42,20 @@ def slice_video_by_danmaku(ass_path, video_path, duration=60, top_n=1, max_overl
     output_folder = os.path.dirname(video_path)
     video_name = os.path.basename(video_path)
     timestamps = extract_timestamps(ass_path)
-    dense_periods = find_dense_periods(timestamps, duration, top_n, max_overlap, step)
-    print("The dense periods and their count are:")
-    i = 1
+    autosv_log = Log("autosv")
+    dense_periods = find_dense_periods(
+        autosv_log, timestamps, duration, top_n, max_overlap, step
+    )
+    autosv_log.info("The dense periods and their count are:")
     for period in dense_periods:
-        print(f"Start from {period[0]} seconds with the count is {period[1]}")
-        slice_video(video_path, f'{output_folder}{i}_{video_name}', period[0], duration)
-        i += 1
+        autosv_log.info(
+            f"Start from {period[0]} to {period[0] + duration} seconds with the count is {period[1]}"
+        )
+        slice_video(
+            video_path, f"{output_folder}{period[0]}s_{video_name}", period[0], duration
+        )
+        autosv_log.info(f"Slice the {output_folder}{period[0]}s_{video_name} done.")
+
 
 if __name__ == "__main__":
-    slice_video_by_danmaku('./sample.ass', './sample.mp4', 300, 3, 60, 1)
+    slice_video_by_danmaku("./sample.ass", "./sample.mp4", 300, 3, 60, 1)

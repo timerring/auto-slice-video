@@ -3,7 +3,6 @@
 import argparse
 import sys
 import os
-import logging
 from autosv import slice_video_by_danmaku
 
 
@@ -60,11 +59,12 @@ def cli():
     )
 
     args = parser.parse_args()
-
     if os.path.splitext(args.ass)[1] == ".ass":
-        slice_video_by_danmaku(args.ass, args.video, args.duration, args.top_n, args.overlap, args.step)
+        slice_video_by_danmaku(
+            args.ass, args.video, args.duration, args.top_n, args.overlap, args.step
+        )
     else:
-        print("Please assign the correct input ass format file.")
+        print("Please assign the correct input the file in ass format!", flush=True)
 
 
 if __name__ == "__main__":
