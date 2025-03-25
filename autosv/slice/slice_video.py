@@ -15,6 +15,7 @@ def slice_video(video_path, output_path, start_time, duration=30):
     duration = format_time(duration)
     command = [
         'ffmpeg',
+        '-y',
         '-ss', format_time(start_time),
         '-i', video_path,
         '-t', duration,
