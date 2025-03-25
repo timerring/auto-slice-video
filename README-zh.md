@@ -33,13 +33,13 @@
 ### 命令行使用
 
 ```bash
-python -m autoslice.autosv
+python -m autosv.cli
 ```
 
 ### API使用
 
 ```python
-from autoslice.autosv import slice_video_by_danmaku
+from autosv import slice_video_by_danmaku
 
 slice_video_by_danmaku(ass_path, video_path, duration=300, top_n=3, max_overlap=60, step=1)
 ```

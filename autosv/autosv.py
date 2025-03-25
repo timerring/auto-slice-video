@@ -34,14 +34,14 @@ def slice_video_by_danmaku(ass_path, video_path, duration=300, top_n=3, max_over
         step: The step size for sliding window (in seconds).
     """
     output_folder = os.path.dirname(video_path)
-    video_name = os.path.splitext(os.path.basename(video_path))[0]
+    video_name = os.path.basename(video_path)
     timestamps = extract_timestamps(ass_path)
     dense_periods = find_dense_periods(timestamps, duration, top_n, max_overlap, step)
     print("The dense periods and their count are:")
     i = 1
     for period in dense_periods:
         print(f"Start from {period[0]} seconds with the count is {period[1]}")
-        slice_video(video_path, f'{output_folder}/{video_name}_{i}.mp4', period[0], duration)
+        slice_video(video_path, f'{output_folder}{i}_{video_name}', period[0], duration)
         i += 1
 
 if __name__ == "__main__":
