@@ -39,7 +39,7 @@ def slice_video_by_danmaku(
         max_overlap: The maximum allowed overlap between periods (in seconds).
         step: The step size for sliding window (in seconds).
     """
-    output_folder = os.path.dirname(video_path)
+    output_folder = os.path.abspath(os.path.dirname(video_path))
     video_name = os.path.basename(video_path)
     timestamps = extract_timestamps(ass_path)
     autosv_log = Log("autosv")
@@ -52,9 +52,9 @@ def slice_video_by_danmaku(
             f"Start from {period[0]} to {period[0] + duration} seconds with the count is {period[1]}"
         )
         slice_video(
-            video_path, f"{output_folder}{period[0]}s_{video_name}", period[0], duration
+            video_path, f"{output_folder}/{period[0]}s_{video_name}", period[0], duration
         )
-        autosv_log.info(f"Slice the {output_folder}{period[0]}s_{video_name} done.")
+        autosv_log.info(f"Slice the {output_folder}/{period[0]}s_{video_name} done.")
 
 
 if __name__ == "__main__":
