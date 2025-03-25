@@ -14,7 +14,7 @@ def cli():
         "-V",
         "--version",
         action="version",
-        version="autosv 0.0.1",
+        version="autosv 0.0.2",
         help="Print version information",
     )
     parser.add_argument(
