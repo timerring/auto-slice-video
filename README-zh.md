@@ -33,7 +33,7 @@
 ### 命令行使用
 
 ```bash
-python -m autoslice.autosv
+python -m autosv.cli
 ```
 
 ### API使用

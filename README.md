@@ -33,7 +33,7 @@ More OS please refer to the [official website](https://ffmpeg.org/download.html)
 ### cli usage
 
 ```bash
-python -m autoslice.autosv
+python -m autosv.cli
 ```
 
 ### api usage
