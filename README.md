@@ -4,48 +4,48 @@
     <img src="assets/headerLight.svg" alt="auto-slice-video" />
   </picture>
 
-**Auto slice the highlight shorts** based on the density of danmaku.
+基于弹幕密度的高能片段自动切片机
 
-English | [简体中文](./README-zh.md)
+[English](./README-en.md) | 简体中文
 
 </div>
 
-## Features
+## 功能
 
-- Detect the dense period of danmaku based on the sliding window algorithm.
-- Slice the video based on the density of danmaku.
-- Support GPU accelerated calculation.([Automatically choose whether to use GPU acceleration](#why-i-cannot-use-the-gpu-acceleration))
-- Support custom quantity slicing videos.
-- Support custom slice duration.
-- Add detailed log information.
-- Support cli usage and api usage.
+- 基于滑动窗口算法检测弹幕密集的时间段
+- 根据弹幕密度自动切片视频
+- 支持 Nvidia GPU 加速计算（[自动选择是否使用GPU加速](#为什么我不能使用gpu加速)）
+- 支持自定义数量的视频切片
+- 支持自定义切片时长
+- 添加详细的日志信息
+- 支持命令行使用和API使用
 
-## Demo
+## 效果展示
 
 ![](https://cdn.jsdelivr.net/gh/timerring/scratchpad2023/2024/2025-03-25-18-27-58.gif)
 
-## Installation
+## 安装
 
-To use this tool, you need to install ffmpeg first.
+使用此工具前，您需要先安装ffmpeg:
 
-- Windows: `choco install ffmpeg` (via [Chocolatey](https://chocolatey.org/)) or other methods.
-- macOS: `brew install ffmpeg` (via [Homebrew](https://brew.sh/)).
-- Linux: `sudo apt install ffmpeg` (Debian/Ubuntu). 
+- Windows: `choco install ffmpeg`（通过[Chocolatey](https://chocolatey.org/)）或其他方法
+- macOS: `brew install ffmpeg`（通过[Homebrew](https://brew.sh/)）
+- Linux: `sudo apt install ffmpeg`（Debian/Ubuntu）
 
-More OS please refer to the [official website](https://ffmpeg.org/download.html).
+更多操作系统安装 ffmpeg 请参考[官方网站](https://ffmpeg.org/download.html)。
 
-Then install the `autosv` package.
+然后安装 `autosv`:
 
 ```bash
 pip install autosv
 ```
 
-## Usage
+## 使用方法
 
-### cli usage
+### 命令行使用
 
 ```bash
-# eg. The default parameters are shown in autosv -h
+# eg. 默认参数见 autosv -h
 autosv -a sample.ass -v sample.mp4
 autosv -a sample.ass -v sample.mp4 -d 300 -n 3 --overlap 60 --step 1
 autosv -h
@@ -63,20 +63,20 @@ autosv -h
 #   --step STEP           The step(seconds) of the sliding window, default is 1
 ```
 
-### api usage
+### API使用
 
 ```python
 from autosv import slice_video_by_danmaku
-# The default parameters are the same as the cli usage
+# 基本参数同上
 slice_video_by_danmaku(ass_path, video_path, duration=300, top_n=3, max_overlap=60, step=1)
 ```
 
-## common issues
+## 常见问题
 
-### What is the difference between cpu and gpu implementation?
+### GPU 和 CPU 实现有什么区别？
 
-Generally speaking, the gpu implementation is faster and more efficient than the cpu implementation due to the parallel computing. In my practice, when the input data is around 30k(Try `test/sample2.ass`), the gpu implementation only takes 2 seconds, while the cpu implementation takes 33 seconds, which is 16.5 times faster with only 55 MB VRAM occupied.
+一般来说，当输入计算数据较大时，由于 GPU 是并行计算，因此GPU 计算比 CPU 计算更快且更高效。在我的实测中，当输入数据规模达到3万多条时 (见`test/sample2.ass`)，GPU 计算仅用 2 秒，而 CPU 计算用 33 秒，GPU 实现速度是 CPU 实现的 16.5 倍，并且仅占用 55 MB 的显存。
 
-### Why I cannot use the gpu acceleration?
+### 为什么我不能使用 GPU 加速？
 
-The autosv will detect whether the cuda is available on the machine via `nvcc -V`, if your machine has nvidia gpu, please make sure your driver is installed and the cuda is available. Meanwhile, make sure you have installed the `numba` and `numpy` with the right version.
+`autosv` 会通过 `nvcc -V` 检测机器上是否可用cuda，如果您的机器有NVIDIA GPU，请确保您的驱动已安装且cuda可用。同时，确保您已安装正确版本的`numba`和`numpy`。
