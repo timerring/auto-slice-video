@@ -10,6 +10,12 @@ English | [简体中文](./README-zh.md)
 
 </div>
 
+## Introduction
+
+> If you think the project is good, welcome ⭐ also welcome PR cooperation, if you have any questions, please raise an issue for discussion.
+
+A video automatic slicing tool that supports GPU acceleration calculation, command line usage, and API usage.
+
 ## Features
 
 - Detect the dense period of danmaku based on the sliding window algorithm.
@@ -23,6 +29,8 @@ English | [简体中文](./README-zh.md)
 ## Demo
 
 ![](https://cdn.jsdelivr.net/gh/timerring/scratchpad2023/2024/2025-03-25-18-27-58.gif)
+
+As shown above, extract 3 highlight videos from a video, each video is 300 seconds long, and the maximum overlap is 60 seconds. Then calculate and slice out 3 highlight videos. The format is `xxxs_original video name`, `xxx` represents the starting time of the slice in the original video, which is convenient for the user to locate.
 
 ## Installation
 
