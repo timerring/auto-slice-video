@@ -47,6 +47,7 @@ def slice_video_by_danmaku(
         autosv_log, timestamps, duration, top_n, max_overlap, step
     )
     autosv_log.info("The dense periods and their count are:")
+    slices_path = []
     for period in dense_periods:
         autosv_log.info(
             f"Start from {period[0]} to {period[0] + duration} seconds with the count is {period[1]}"
@@ -55,6 +56,8 @@ def slice_video_by_danmaku(
             video_path, f"{output_folder}/{period[0]}s_{video_name}", period[0], duration
         )
         autosv_log.info(f"Slice the {output_folder}/{period[0]}s_{video_name} done.")
+        slices_path.append(f"{output_folder}/{period[0]}s_{video_name}")
+    return slices_path
 
 
 if __name__ == "__main__":
