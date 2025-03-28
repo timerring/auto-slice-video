@@ -39,10 +39,12 @@ def slice_video_by_danmaku(
         max_overlap: The maximum allowed overlap between periods (in seconds).
         step: The step size for sliding window (in seconds).
     """
+    autosv_log = Log("autosv")
+    autosv_log.info("autosv v0.0.2")
+    autosv_log.info("https://github.com/timerring/auto-slice-video")
     output_folder = os.path.abspath(os.path.dirname(video_path))
     video_name = os.path.basename(video_path)
     timestamps = extract_timestamps(ass_path)
-    autosv_log = Log("autosv")
     dense_periods = find_dense_periods(
         autosv_log, timestamps, duration, top_n, max_overlap, step
     )

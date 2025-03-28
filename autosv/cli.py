@@ -3,18 +3,29 @@
 import argparse
 import sys
 import os
+import textwrap
 from autosv import slice_video_by_danmaku
 
 
 def cli():
     parser = argparse.ArgumentParser(
-        description="Auto slice the highlight shorts based on the density of danmaku."
+        prog="autosv",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        description=textwrap.dedent('''
+        Auto slice the highlight shorts based on the density of danmaku.
+        Source code at https://github.com/timerring/auto-slice-video
+        '''),
+        epilog=textwrap.dedent('''
+        Example:
+        autosv -a input.ass -v input.mp4
+        autosv -a input.ass -v input.mp4 -d 60 -n 1 --overlap 30 --step 1
+        '''),
     )
     parser.add_argument(
         "-V",
         "--version",
         action="version",
-        version="autosv 0.0.2",
+        version="autosv 0.0.2 and source code at https://github.com/timerring/auto-slice-video",
         help="Print version information",
     )
     parser.add_argument(
