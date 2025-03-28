@@ -40,7 +40,7 @@ def slice_video_by_danmaku(
         step: The step size for sliding window (in seconds).
     """
     autosv_log = Log("autosv")
-    autosv_log.info("autosv v0.0.2")
+    autosv_log.info("autosv v0.0.3")
     autosv_log.info("https://github.com/timerring/auto-slice-video")
     output_folder = os.path.abspath(os.path.dirname(video_path))
     video_name = os.path.basename(video_path)

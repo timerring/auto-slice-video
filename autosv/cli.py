@@ -25,7 +25,7 @@ def cli():
         "-V",
         "--version",
         action="version",
-        version="autosv 0.0.2 and source code at https://github.com/timerring/auto-slice-video",
+        version="autosv 0.0.3 and source code at https://github.com/timerring/auto-slice-video",
         help="Print version information",
     )
     parser.add_argument(
